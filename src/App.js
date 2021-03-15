@@ -19,7 +19,7 @@ function  App () {
   const [begin, setBegin] = useState(0);
 
   const [loading, setLoading] = useState(true);
-  const [searchLoading, setSearchLoading] = useState(false);
+  const [searchLoading] = useState(false);
 
 
   const themeToggler = () => {
@@ -45,7 +45,6 @@ function  App () {
 
     setSuperheroData(data.results);
     setLoading(true);
-    console.log('Entreiiiii')
   }
 
   
@@ -89,7 +88,7 @@ async function listAllHeroes() {
 
 
   return (
-    <ThemeProvider theme={(theme == 'red' ? redTheme : blueTheme)}>
+    <ThemeProvider theme={(theme === 'red' ? redTheme : blueTheme)}>
       <GlobalStyles/>
       <div id= "switch" >
         <Switch 
@@ -113,7 +112,7 @@ async function listAllHeroes() {
         }
 
         {
-          searchLoading == true && 
+          searchLoading === true && 
           <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>
           </Spinner>
