@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {Button, Modal} from 'react-bootstrap';
 
-import { withStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -10,31 +8,57 @@ import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+
+
 const CharacterItem = (props) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [state, setState] = useState({checkedH: true})
+    const [favorites, setFavorites] = useState([]);
+    
 
     const {data} = props;
 
-    const GreenCheckbox = withStyles({
+    const useStyles = makeStyles((theme) => ({
         root: {
-          color: green[400],
-          '&$checked': {
-            color: green[600],
+          display: 'flex',
+          '& > *': {
+            margin: theme.spacing(1),
           },
         },
-        checked: {},
-    })((props) => <Checkbox color="default" {...props} />);
+    }));
 
-    const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
-    };
+
+    let heroesFavorites = [];
+    const saveFavorites = () => {
+        heroesFavorites.push(
+            data.name,
+            data.image.url
+        );
+
+        setFavorites(heroesFavorites);
+   
+       
+    }   
+   
+    const classes = useStyles();
 
         return (
             <>
+                {/* <ul>
+                    {heroesFavorites.map((info, key) => {
+                        <li key={info.nameFavorite}>{heroesFavorites.avatar}</li>
+                    })}
+                    
+                </ul> */}
+                {console.log('favoritos: ', favorites)}
+                {/* {
+                    (favorites.length > 0) && 
+                    <><p>{heroesFavorites.avatar}</p></>
+                } */}
                 <div className="card">
                     <div className="card-inner">
                             <div className="card-front">
@@ -63,11 +87,12 @@ const CharacterItem = (props) => {
                                     </li> 
                                    
                                     <FormGroup row>
-                                    <FormControlLabel
-                                        control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} name="checkedH" />}
-                                        label="Favorite"
-                                    />
+                                        <FormControlLabel
+                                            control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} name={data.name} onClick={saveFavorites}/>}
+                                            label="Favorite"
+                                        />                    
                                     </FormGroup>
+                                   
                                     <Button variant="primary" onClick={handleShow}>
                                         Show More
                                     </Button>                          

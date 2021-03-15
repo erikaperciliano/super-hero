@@ -1,5 +1,4 @@
 import {createGlobalStyle} from 'styled-components';
-import img from '../src/img/bg.jpg'
 
 export const redTheme = {
     body:'#DC143C',
