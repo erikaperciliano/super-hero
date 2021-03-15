@@ -6,8 +6,8 @@ O usuário poderá ver mais informações do super herói caso deseje e também 
 
 # Iniciando...
 
-* git clone https://github.com/kyriosdata/exemplo
-* npm install
+* git clone https://github.com/erikaperciliano/super-hero
+* yarn install
 * yarn start
 
 ### Ferramentas utilizas:
