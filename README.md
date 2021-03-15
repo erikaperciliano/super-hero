@@ -9,6 +9,9 @@ O usuário poderá ver mais informações do super herói caso deseje e também 
 * git clone https://github.com/erikaperciliano/super-hero
 * yarn install
 * yarn start
+* yarn add @material-ui/icons
+* yarn add bootstrap
+* yarn add favorite-icon
 
 ### Ferramentas utilizas:
 
