@@ -1,13 +1,21 @@
 # Super-Hero
 
-Este é um projeto cuja finalidade é a criação de uma aplicação web que realiza consultas dos super heróis de diferentes universos. Nesse projeto é faz consultas a SuperHeroAPI (https://superheroapi.com/) e salva informações de dados e preferências do usuário.
+Este é um projeto cuja finalidade é a criação de uma aplicação web que realiza consultas dos super heróis de diferentes universos. Nesse projeto é feito uma consultas na API SuperHero (https://superheroapi.com/).
 
+O usuário poderá ver mais informações do super herói caso deseje e também poderá favoritá-los.
 
+# Iniciando...
 
-### Para executar o projeto, será necessário instalar os seguintes programas:
+* git clone https://github.com/kyriosdata/exemplo
+* npm install
+* yarn start
 
-* axios
-* react
-* eslint
+### Ferramentas utilizas:
+
+* Material-UI
+* React Bootstrap
+* React
+* ESLint
+* Styled Components
 
 
