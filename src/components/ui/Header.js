@@ -14,7 +14,7 @@ const Header = (props) => {
                 <input
                     id="search-bar"
                     type="search"
-                    placeholder="Search superheroes here..."
+                    placeholder="Search name of super heroes here..."
                     onChange={handleChange}
                     value={searchText}
                     className="form-control"
