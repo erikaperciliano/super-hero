@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import {Button, Modal} from 'react-bootstrap';
 
 import FormGroup from '@material-ui/core/FormGroup';
@@ -6,11 +6,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
-
-
-import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
-
 
 const CharacterItem = (props) => {
     const [show, setShow] = useState(false);
@@ -22,43 +17,9 @@ const CharacterItem = (props) => {
 
     const {data} = props;
 
-    const useStyles = makeStyles((theme) => ({
-        root: {
-          display: 'flex',
-          '& > *': {
-            margin: theme.spacing(1),
-          },
-        },
-    }));
-
-
-    let heroesFavorites = [];
-    const saveFavorites = () => {
-        heroesFavorites.push(
-            data.name,
-            data.image.url
-        );
-
-        setFavorites(heroesFavorites);
-   
-       
-    }   
-   
-    const classes = useStyles();
-
-        return (
+    return (
             <>
-                {/* <ul>
-                    {heroesFavorites.map((info, key) => {
-                        <li key={info.nameFavorite}>{heroesFavorites.avatar}</li>
-                    })}
-                    
-                </ul> */}
-                {console.log('favoritos: ', favorites)}
-                {/* {
-                    (favorites.length > 0) && 
-                    <><p>{heroesFavorites.avatar}</p></>
-                } */}
+                
                 <div className="card">
                     <div className="card-inner">
                             <div className="card-front">
@@ -88,7 +49,7 @@ const CharacterItem = (props) => {
                                    
                                     <FormGroup row>
                                         <FormControlLabel
-                                            control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} name={data.name} onClick={saveFavorites}/>}
+                                            control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} name={data.name} onClick={() => setFavorites(data.name)}/>}
                                             label="Favorite"
                                         />                    
                                     </FormGroup>
@@ -131,7 +92,7 @@ const CharacterItem = (props) => {
                             <strong>Weight: {data.appearance.weight}</strong>
                         </li>
                         <hr/>
-                        <h5>work:</h5>
+                        <h5>Work:</h5>
                         <li>
                             <strong>Occupation: {data.work.occupation}</strong>
                         </li> 
